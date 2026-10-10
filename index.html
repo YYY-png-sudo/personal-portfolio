@@ -421,6 +421,79 @@
 }
 </style>
 
+
+<style id="text-only-articles">
+.article-text-only {
+  min-height: 150px;
+  align-content: center;
+}
+.article-text-only .year,
+.article-text-only .article-meta { grid-row: 1; }
+.article-text-only .article-title { grid-row: 2; }
+</style>
+
+
+<style id="radar-details">
+.radar-intro { max-width: 750px; margin: 30px 0 40px; }
+.radar-intro h3 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin: 14px 0 4px;
+}
+.radar-subtitle { color: var(--accent); font-size: 14px; margin-bottom: 22px; }
+.radar-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+.radar-feature { border-top: 1px solid var(--line); padding: 24px 0; }
+.radar-feature h3 { font-size: 20px; margin: 14px 0; }
+.radar-feature p, .radar-process p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+  margin-bottom: 0;
+}
+.radar-process {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 28px;
+  margin-top: 12px;
+  background: #eceee5;
+}
+.radar-process h3 { font-size: 18px; margin: 0 0 12px; }
+.radar-note {
+  max-width: 850px;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 22px 0 0;
+}
+@media (max-width: 680px) {
+  .radar-features, .radar-process { grid-template-columns: 1fr; gap: 22px; }
+  .radar-feature { padding-bottom: 0; }
+  .radar-process { padding: 24px; margin-top: 28px; }
+}
+</style>
+
+
+<style id="radar-result-style">
+.radar-result { margin: 32px 0; }
+.radar-result a { display: block; }
+.radar-result img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+.radar-result figcaption {
+  margin-top: 12px;
+  max-width: 800px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+</style>
+
 </head>
 <body>
   <div class="wrap">
@@ -454,7 +527,7 @@
           <h2 id="writing-title">非虚构报道</h2>
           <span class="section-label">01 / WRITING</span>
         </div>
-        <p class="section-note">在《正面连接》发表的六篇报道，点击标题阅读原文。</p>
+        <p class="section-note">非虚构报道选读，点击标题阅读原文。</p>
 
         <!-- 添加报道时，复制一个 article 链接块并修改内容即可。 -->
         <div class="writing-list">
@@ -500,7 +573,25 @@
             <span class="article-title">住在树上的王柳云</span>
             <span class="article-meta">阅读 2.4万 ↗</span>
           </a>
-        </div>
+        
+          <a class="article" href="https://mp.weixin.qq.com/s/hKmo9hs2dPQnMSnxlHdldg"
+             target="_blank" rel="noopener noreferrer">
+            <img class="article-image" src="images/AI.jpg"
+                 alt="" loading="lazy" decoding="async">
+            <span class="year">2026</span>
+            <span class="article-title">我用AI谈恋爱</span>
+            <span class="article-meta">阅读 3万 ↗</span>
+          </a>
+
+          <a class="article" href="https://mp.weixin.qq.com/s/VLmdrkxAP2VjEZ0ja5soPQ"
+             target="_blank" rel="noopener noreferrer">
+            <img class="article-image" src="images/xinlizixun.pic.jpg"
+                 alt="" loading="lazy" decoding="async">
+            <span class="year">2024</span>
+            <span class="article-title">心理咨询有什么用</span>
+            <span class="article-meta">阅读 4.2万 ↗</span>
+          </a>
+</div>
         <p class="data-note">阅读量为作者提供的原文记录，非实时更新数据。</p>
       </section>
 
@@ -623,32 +714,78 @@
 </section>
 
       <section id="project" aria-labelledby="project-title">
-        <div class="section-head">
-          <h2 id="project-title">技术实验</h2>
-          <span class="section-label">03 / AI PROJECT</span>
-        </div>
-        <div class="project">
-          <div>
-            <h3>ACG Trend Radar</h3>
-            <p class="project-copy">
-              一个由我独立推进、使用 AI 辅助编程开发的动漫游戏热点追踪项目。
-              我希望持续观察市场热度的变化，并探索未来 6—12 个月的趋势分析方法。
-            </p>
-            <p class="project-copy">
-              开发过程中，我从问题定义出发，逐步学习数据采集、历史记录与分析方法，
-              通过持续迭代将想法转化为可检查的代码。
-            </p>
-            <a class="text-link" href="https://github.com/YYY-png-sudo/acg-trend-radar" target="_blank" rel="noopener noreferrer">
-              查看 GitHub 仓库 ↗
-            </a>
-          </div>
-          <aside class="project-aside" aria-label="项目说明">
-            <p><strong>关注的问题</strong>动漫与游戏的热度如何变化？哪些变化值得持续观察？</p>
-            <p><strong>开发方式</strong>独立推进 · AI 辅助编程 · 逐步迭代</p>
-            <p><strong>研究方向</strong>市场数据追踪与趋势分析；预测方法仍在探索中。</p>
-          </aside>
-        </div>
-      </section>
+  <div class="section-head">
+    <h2 id="project-title">技术实验</h2>
+    <span class="section-label">03 / AI PROJECT</span>
+  </div>
+
+  <div class="radar-intro">
+    <span class="small-label">独立项目 · AI 辅助开发 · 持续迭代</span>
+    <h3>ACG Trend Radar</h3>
+    <p class="radar-subtitle">动漫游戏热点追踪系统</p>
+    <p class="project-copy">
+      从内容研究与 IP 选题的需要出发，我尝试将对动漫游戏市场的关注，
+      转化为可持续记录、比较与追溯的数据观察。
+      项目目前以动漫数据为起点，逐步建立热度分析与 IP 信息管理的后端原型。
+    </p>
+    <a class="text-link"
+       href="https://github.com/YYY-png-sudo/acg-trend-radar"
+       target="_blank" rel="noopener noreferrer">查看代码与开发记录 ↗</a>
+  </div>
+
+  <div class="radar-features">
+    <div class="radar-feature">
+      <span class="small-label">01 / 数据观察</span>
+      <h3>热度与历史记录</h3>
+      <p>已编写 AniList 动漫数据采集、热度评分、排行榜和历史快照接口，
+      为比较不同时点的市场信号建立基础。</p>
+    </div>
+    <div class="radar-feature">
+      <span class="small-label">02 / 变化分析</span>
+      <h3>关注正在发生的变化</h3>
+      <p>已编写24小时与7天窗口的热度变化分析、变化排行榜及 Rising Radar 接口，
+      用于探索值得进一步关注的上升信号。</p>
+    </div>
+    <div class="radar-feature">
+      <span class="small-label">03 / IP 信息</span>
+      <h3>连接作品与事件</h3>
+      <p>已建立 IP 实体、数据源映射与事件管理接口，
+      并加入广电总局动画备案记录的列表及详情查询接口。</p>
+    </div>
+  </div>
+
+  
+<figure class="radar-result">
+  <a href="images/radar-result.jpg" target="_blank" rel="noopener noreferrer">
+    <img src="images/radar-result.jpg"
+         alt="动漫热度变化表，展示覆盖天数、起止热度与变化数值"
+         loading="lazy">
+  </a>
+  <figcaption>
+    项目运行结果示例：比较覆盖9天的动漫热度记录，展示起止热度及变化幅度。
+    这是历史变化观察，不代表未来预测。点击图片查看大图。
+  </figcaption>
+</figure>
+
+<div class="radar-process">
+    <div>
+      <h3>我的工作方式</h3>
+      <p>独立提出问题、拆分需求，使用 AI 辅助编程推进实现，
+      并在开发中学习数据结构、接口设计与验证方法。
+      项目通过逐步迭代，将最初的热点观察想法转化为可检查的代码。</p>
+    </div>
+    <div>
+      <h3>技术与自动化</h3>
+      <p>Python · FastAPI。已配置 GitHub Actions 每日执行 AniList
+      快照采集任务，通过仓库密钥提供数据库连接。</p>
+    </div>
+  </div>
+
+  <p class="radar-note">
+    当前展示为开发中的后端原型。热度评分与变化分析描述当前及历史信号；
+    未来6—12个月的趋势分析仍是研究方向，尚未形成经过验证的预测能力。
+  </p>
+</section>
 
       <section id="about" aria-labelledby="about-title">
   <div class="section-head">
@@ -681,7 +818,14 @@
         尝试将内容研究经验与新的技术工具结合。
       </p>
 
-      <div class="background-list">
+      
+      <p class="personal-intro psychology-background">
+        我长期、系统地学习心理学，并结合政治哲学与叙事学，
+        持续关注人的情感、关系与行动。心理学也是我开展人物研究、
+        非虚构写作和播客讨论的重要视角。
+      </p>
+
+<div class="background-list">
         <div class="background-item">
           <span class="background-label">教育</span>
           <div>
